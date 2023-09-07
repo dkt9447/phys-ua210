@@ -10,4 +10,6 @@ import matplotlib.pyplot as plt
 xs=np.linspace(-10, 10,1000)
 ys=1/(3*np.sqrt(2*np.pi))*np.exp(-xs**2/9)
 plt.plot(xs,ys)
-plt.savefig('gaussian')
+plt.xlabel("x")
+plt.ylabel("y")
+plt.savefig('Gaussian')
