@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{graphicx} 
+\usepackage{amsmath,amsfonts}
+
+\title{PS1}
+\author{Donovan Thompson }
+\date{September 2023}
+
+\begin{document}
+
+\maketitle
+\section{}
+$121_{10}=1111001_{2}$
+\section{4.2}
+\subsection{}
+\begin{align*}
+x&=\frac{-b\pm\sqrt{b^2-4ac}}{2a}  \frac{-b\mp\sqrt{b^2-4ac}}{-b\mp\sqrt{b^2-4ac}}\\
+&= \frac{b^2\pm b\sqrt{b^2-4ac}\mp b\sqrt{b^2-4ac}-b^2+4ac}{2a\left(-b\mp\sqrt{b^2-4ac} \right)}\\
+&= \frac{4ac}{2a\left(-b\mp\sqrt{b^2-4ac}\right)}\\
+&= \frac{2c}{-b\mp\sqrt{b^2-4ac}}
+\end{align*}
+\subsection{}
+Consider the first order propagation of error for a function that goes like $f(x)=1/x$. $\delta f(x)\approx \frac{1}{x^2}\delta x $. Therefore, for small $x$, we should expect large errors. In the second example, there is a small difference between two large numbers. There for we should expect relatively large errors of the order of magnitude of the difference and that such error would be exacerbated by being in the denominator. Therefor the first form is better.
+\end{document}
+
+
