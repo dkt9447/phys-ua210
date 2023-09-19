@@ -9,7 +9,9 @@ S=np.empty(C.shape)
 for i in range(I):
     Z=Z**2+C
     S+=np.abs(Z)>2
-plt.imshow(S/I,cmap='gray')
+plt.imshow(S,cmap='gray')
+plt.imshow(S,cmap='jet')
+plt.imshow(S,cmap='hot')
 plt.xlabel("Re")
 plt.ylabel("Im")
 plt.show()
