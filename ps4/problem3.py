@@ -33,7 +33,8 @@ plt.xlabel('Distance (dimentionless) ')
 plt.ylabel('Amplitude (dimentionless) ')
 plt.show()
 plt.plot(A,psi(10,A))
-
+plt.xlabel('Distance (dimentionless) ')
+plt.ylabel('Amplitude (dimentionless) ')
 x,w=np.polynomial.hermite.hermgauss(15)
 np.sqrt(np.sum(x**2*Rpsi(5,x)**2*w))
 
@@ -46,8 +47,10 @@ def rmsX(n):
     return np.sqrt(np.sum(x**2*Rpsi(n,x)**2*w))
 def rmsXL(n):
     xl,wl=np.polynomial.legendre.leggauss(NL)
-    z=x/(1-xl**2)
+    z=xl/(1-xl**2)
     #coord transform
     dz=(1+xl**2)/(1-xl**2)**2
     #jacobian
     return np.sqrt(np.sum(z**2*psi(5,z)**2*wl*dz))
+
+rmsXL(5)

@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['ps3\\Derivative.py', 'ps3\\Numpy Decay.py', 'ps3\\For Decay.py', 'ps3\\Matrix Multiplication.py']
+recent_files = ['ps3\\Derivative.py', 'ps3\\Numpy Decay.py', 'ps3\\For Decay.py', 'ps3\\Matrix Multiplication.py', 'ps5\\untitled0.py']
 
 [main]
 version = 0.2.0
