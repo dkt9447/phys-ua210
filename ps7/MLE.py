@@ -31,7 +31,7 @@ def like(params):
     probs=1-yn+model(age,params)*(2*yn-1)
 
     #1-p if a=0, p if a=1
-    probs+=10**-11
+    probs+=10**-1
     #prevent inf
     return jnp.sum(-jnp.log(probs))
 
@@ -47,5 +47,5 @@ hessian=jax.hessian(like)
 cov=np.linalg.inv(hessian(r.x))
 sigma_b0=np.sqrt(cov[0,0])
 sigma_b1=np.sqrt(cov[1,1])
-print(sigma_b0,sigma_b1,-r.x[0]/r.x[1])
+print(cov)
 
