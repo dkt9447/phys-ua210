@@ -22,12 +22,14 @@ k=(hbar*c)/(.2*10**-10)
 a=L/N
 
 U=np.load('time_evolve matrix.npy')
-
+U=np.linalg.matrix_power(U,1000)
+#faster time evolvution 
 def initial(x):
-    x= np.exp(-(x-L/2)**2/(2*sigma**2))*np.exp(1j*k*x)
-    x[0]=0
-    x[-1]=0
-    return x
+    y= np.exp(-(x-3*L/4)**2/(16*sigma**2))*np.exp(-1j*k*x)/4
+    y+= np.exp(-(x-1*L/4)**2/(16*sigma**2))*np.exp(1j*k*x)/4
+    y[0]=0
+    y[-1]=0
+    return y
 
 x=np.linspace(0,L,N)
 init_wave=initial(x)
@@ -35,10 +37,7 @@ init_wave=initial(x)
 
 def evolve():
     global P
-    for i in range(10):
-        P=U@P
-        P[0]=0
-        P[-1]=0
+    P=U@P
 P=U@init_wave
 # Create a figure and 3D axis
 fig = plt.figure()
@@ -60,12 +59,11 @@ def init():
 
 
 def update(frame):
-    for i in range(100):
-        evolve()
+    evolve()
     line.set_data(x, np.real(P))
     line.set_3d_properties(np.imag(P))
     return line,
 
-ani = FuncAnimation(fig, update, frames=range(300), init_func=init, blit=False, interval=100)
+ani = FuncAnimation(fig, update, frames=range(100), init_func=init, blit=False, interval=100)
 
 ani.save('ps9/anim.gif',dpi=100)

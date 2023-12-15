@@ -36,6 +36,11 @@ B2_diag=np.full(N-1,b2)
 B=np.diag(B2_diag,1)+np.diag(B2_diag,-1)+np.diag(B1_diag)
 
 U=np.linalg.inv(A)@B
+B=np.diag(np.full(N,1))
+
+B[0][0]=B[-1][-1]=0
+U=B@U
+
 np.save("ps9/time_evolve matrix",U)
 
 print(a1,a2,b1,b2)
